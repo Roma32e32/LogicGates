@@ -83,24 +83,24 @@ impl BitVector
         get_bit(self.data[addr.0], addr.1)
     }
 
-    pub fn on_bit(self: &BitVector, index: usize)
+    pub fn on_bit(self: &mut BitVector, index: usize)
     {
         debug_assert!(index < self.bits_used as usize, "self.bits_used = {} || index = {}", self.bits_used, index);
         let addr = index_to_address(index);
-        on_bit(self.data[addr.0], addr.1);
+        self.data[addr.0] = on_bit(self.data[addr.0], addr.1);
     }
 
-    pub fn off_bit(self: &BitVector, index: usize)
+    pub fn off_bit(self: &mut BitVector, index: usize)
     {
         debug_assert!(index < self.bits_used as usize, "self.bits_used = {} || index = {}", self.bits_used, index);
         let addr = index_to_address(index);
-        off_bit(self.data[addr.0], addr.1);
+        self.data[addr.0] = off_bit(self.data[addr.0], addr.1);
     }
 
-    pub fn flip_bit(self: &BitVector, index: usize)
+    pub fn flip_bit(self: &mut BitVector, index: usize)
     {
         debug_assert!(index < self.bits_used as usize, "self.bits_used = {} || index = {}", self.bits_used, index);
         let addr = index_to_address(index);
-        flip_bit(self.data[addr.0], addr.1);
+        self.data[addr.0] = flip_bit(self.data[addr.0], addr.1);
     }
 }
