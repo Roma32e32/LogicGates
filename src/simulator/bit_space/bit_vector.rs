@@ -1,30 +1,30 @@
-fn get_bit(value: u64, index: usize) -> bool
+pub fn get_bit(value: u64, index: usize) -> bool
 {
     value & 1 << index != 0
 }
 
-fn on_bit(value: u64, index: usize) -> u64
+pub fn on_bit(value: u64, index: usize) -> u64
 {
     value | 1 << index
 }
 
-fn off_bit(value: u64, index: usize) -> u64
+pub fn off_bit(value: u64, index: usize) -> u64
 {
     value & !(1 << index)
 }
 
-fn flip_bit(value: u64, index: usize) -> u64
+pub fn flip_bit(value: u64, index: usize) -> u64
 {
     value ^ 1 << index
 }
 
 
-fn index_to_address(index: usize) -> (usize, usize)
+pub fn index_to_address(index: usize) -> (usize, usize)
 {
     (index / 64, index % 64)
 }
 
-fn address_to_index(address: (usize, usize)) -> usize
+pub fn address_to_index(address: (usize, usize)) -> usize
 {
     address.0 * 64 + address.1
 }
